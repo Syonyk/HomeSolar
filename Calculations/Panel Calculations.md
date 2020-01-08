@@ -1,18 +1,22 @@
 # Panel Calculations
 
-## Inverter Sell Output
-Making this somewhat more complex than usual, the inverters are capable of selling less current onto the grid than their output - and aren't just a basic grid tied inverter, in which case this is all easy.
+## Inverter Output Amps
+At 240V (standard split phase voltage), inverter maximum outputs:
 
-The GS8048 is limited to 30A of grid interactive sell current, and the GS4048 is limited to 15A.  Combined, this is 45A of possible grid sell coming back from the shed.  Multiplying by the 1.25x factor used for panel calculations, this is 56.25A of calculated sell current.
+* Sunny Boy 6.0-US: 25A
+* Sunny Boy 3.0-US: 12.5A
 
-## Grid Load Panel (house) *705.12(B)(2)(3)(b)*
-The grid load panel on the house has a 200A busbar, and serves combined power generation and loads.
+## Single 6.0-US
+The output of a single 6.0-US is run into a breaker on the main outside panel busbar, between the house lugs and the 200A main breaker.  125% the rated output (31.25A) is fed into a 35A breaker to backfeed the busbar.
 
-It is protected by a 150A main overcurrent protection device on the grid side.  The maximum sell current that may come back from the inverters is 56.25A.
+A 120% rating on a 200A busbar allows for up to 240A of feed.  A 35A breaker plus an unmodified 200A main breaker works within this limit.
 
-As the grid side and sell side breakers are at opposite ends of the busbar, 705.12(B)(2)(3)(b) applies, allowing 120% the busbar ampacity.
+The disconnect is using a 25A breaker, rated for operation at 100% continuous load.
 
-150A (main OCPD) + 56.25A = 206.25A.  120% of the 200A busbar rating is 240A.
 
-## Grid-Side Panel (shed)
-The power shed grid-side panel is protected (at the house side) by a 125A OCPD.  The maximum sell current from the inverters (x1.25) is 56.25A.  The combined total of 181.25A is less than the busbar rating of 200A, meeting the requirement of 705.12(B)(2)(3)(a), with no restrictions on breaker locations.
+## 6.0-US and 3.0-US
+The panel has a totally separate 50A slot, wired back to the meter separately from the main busbar.  There are no limitations on backfeeding with this.
+
+For these two inverters, they come together in a combiner/disconnect.  In the disconnect/combiner, for the 6.0-US, a 25A breaker is used, and the 3.0-US uses a 15A breaker.  Both are rated for 100% continuous operation.
+
+Combining the inverter output ratings, (25 + 12.5) * 1.25 = 46.87A.  A 50A breaker in the separate slot provides protection for this backfeed.
